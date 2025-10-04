@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Scheme Monitor - Fast</title>
+    <style>
+        /* Critical CSS Inline for Fast Loading */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif; 
+            background: #f8f9fa; 
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+        .header-content { display: flex; align-items: center; justify-content: space-between; }
+        .logo { color: #2563eb; font-size: 18px; font-weight: 600; }
+        .nav { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-btn {
+            padding: 8px 12px;
+            border: none;
+            background: transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.15s;
+        }
+        .nav-btn:hover { background: #f1f5f9; }
+        .nav-btn.active { background: #2563eb; color: white; }
+        .section { display: none; padding: 20px 0; }
+        .section.active { display: block; }
+        .hidden { display: none !important; }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🏛️ Gov Monitor</div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+                    <button class="nav-btn" data-section="search">States</button>
+                    <button class="nav-btn" data-section="schemes">Schemes</button>
+                    <button class="nav-btn" data-section="engineers">Engineers</button>
+                    <button class="nav-btn" data-section="complaints">Complaints</button>
+                    <button class="nav-btn" data-section="alerts">Alerts</button>
+                    <button class="nav-btn" data-section="gallery">Gallery</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Dashboard -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <h2>Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <h3>4,480</h3>
+                            <p>Total Projects</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <h3>₹490 Cr</h3>
+                            <p>Funds Allocated</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-content">
+                            <h3>4</h3>
+                            <p>Complaints</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3>65%</h3>
+                            <p>Progress</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="card">
+                        <h3>State Progress</h3>
+                        <div class="simple-chart">
+                            <div class="chart-bar">
+                                <span>UP</span>
+                                <div class="bar"><div class="fill" style="width: 71%"></div></div>
+                                <span>890/1250</span>
+                            </div>
+                            <div class="chart-bar">
+                                <span>MH</span>
+                                <div class="bar"><div class="fill" style="width: 73%"></div></div>
+                                <span>720/980</span>
+                            </div>
+                            <div class="chart-bar">
+                                <span>BR</span>
+                                <div class="bar"><div class="fill" style="width: 71%"></div></div>
+                                <span>600/850</span>
+                            </div>
+                            <div class="chart-bar">
+                                <span>WB</span>
+                                <div class="bar"><div class="fill" style="width: 77%"></div></div>
+                                <span>580/750</span>
+                            </div>
+                            <div class="chart-bar">
+                                <span>RJ</span>
+                                <div class="bar"><div class="fill" style="width: 74%"></div></div>
+                                <span>480/650</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Scheme Status</h3>
+                        <div class="simple-pie">
+                            <div class="pie-item">
+                                <div class="pie-color" style="background: #2563eb;"></div>
+                                <span>Education - 75%</span>
+                            </div>
+                            <div class="pie-item">
+                                <div class="pie-color" style="background: #16a34a;"></div>
+                                <span>Health - 60%</span>
+                            </div>
+                            <div class="pie-item">
+                                <div class="pie-color" style="background: #dc2626;"></div>
+                                <span>Infrastructure - 45%</span>
+                            </div>
+                            <div class="pie-item">
+                                <div class="pie-color" style="background: #ca8a04;"></div>
+                                <span>Skill - 80%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <span class="activity-icon">📊</span>
+                            <div>
+                                <div class="activity-title">New project started in UP</div>
+                                <div class="activity-desc">Rural Road Construction Phase 3</div>
+                            </div>
+                            <span class="activity-time">2h ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">💰</span>
+                            <div>
+                                <div class="activity-title">Fund allocation approved</div>
+                                <div class="activity-desc">PM-AJAY Health - Maharashtra</div>
+                            </div>
+                            <span class="activity-time">4h ago</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-icon">🚨</span>
+                            <div>
+                                <div class="activity-title">Alert generated</div>
+                                <div class="activity-desc">Work delay in Agra district</div>
+                            </div>
+                            <span class="activity-time">6h ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- States Search -->
+        <section id="search" class="section">
+            <div class="container">
+                <h2>State Search</h2>
+                <div class="search-controls">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search states...">
+                    <select class="form-control" id="stateFilter">
+                        <option value="">All States</option>
+                        <option value="UP">Uttar Pradesh</option>
+                        <option value="MH">Maharashtra</option>
+                        <option value="BR">Bihar</option>
+                        <option value="WB">West Bengal</option>
+                        <option value="RJ">Rajasthan</option>
+                    </select>
+                    <button class="btn" onclick="exportData()">Export</button>
+                </div>
+                <div class="states-grid" id="statesGrid">
+                    <div class="state-card">
+                        <h4>Uttar Pradesh</h4>
+                        <div class="state-stats">
+                            <div><span>1,250</span><br>Projects</div>
+                            <div><span>890</span><br>Completed</div>
+                            <div><span>₹150 Cr</span><br>Funds</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 71%"></div>
+                        </div>
+                    </div>
+                    <div class="state-card">
+                        <h4>Maharashtra</h4>
+                        <div class="state-stats">
+                            <div><span>980</span><br>Projects</div>
+                            <div><span>720</span><br>Completed</div>
+                            <div><span>₹120 Cr</span><br>Funds</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 73%"></div>
+                        </div>
+                    </div>
+                    <div class="state-card">
+                        <h4>Bihar</h4>
+                        <div class="state-stats">
+                            <div><span>850</span><br>Projects</div>
+                            <div><span>600</span><br>Completed</div>
+                            <div><span>₹80 Cr</span><br>Funds</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 71%"></div>
+                        </div>
+                    </div>
+                    <div class="state-card">
+                        <h4>West Bengal</h4>
+                        <div class="state-stats">
+                            <div><span>750</span><br>Projects</div>
+                            <div><span>580</span><br>Completed</div>
+                            <div><span>₹75 Cr</span><br>Funds</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 77%"></div>
+                        </div>
+                    </div>
+                    <div class="state-card">
+                        <h4>Rajasthan</h4>
+                        <div class="state-stats">
+                            <div><span>650</span><br>Projects</div>
+                            <div><span>480</span><br>Completed</div>
+                            <div><span>₹65 Cr</span><br>Funds</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 74%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PM-AJAY Schemes -->
+        <section id="schemes" class="section">
+            <div class="container">
+                <h2>PM-AJAY Schemes</h2>
+                <div class="schemes-grid">
+                    <div class="scheme-card">
+                        <h4>PM-AJAY Education</h4>
+                        <div class="scheme-stats">
+                            <div><span>₹50 Cr</span><br>Fund</div>
+                            <div><span>20L</span><br>Beneficiaries</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                        <div class="progress-text">75% Complete</div>
+                    </div>
+                    <div class="scheme-card">
+                        <h4>PM-AJAY Health</h4>
+                        <div class="scheme-stats">
+                            <div><span>₹30 Cr</span><br>Fund</div>
+                            <div><span>15L</span><br>Beneficiaries</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                        <div class="progress-text">60% Complete</div>
+                    </div>
+                    <div class="scheme-card">
+                        <h4>PM-AJAY Infrastructure</h4>
+                        <div class="scheme-stats">
+                            <div><span>₹80 Cr</span><br>Fund</div>
+                            <div><span>50L</span><br>Beneficiaries</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 45%"></div>
+                        </div>
+                        <div class="progress-text">45% Complete</div>
+                    </div>
+                    <div class="scheme-card">
+                        <h4>PM-AJAY Skill</h4>
+                        <div class="scheme-stats">
+                            <div><span>₹20 Cr</span><br>Fund</div>
+                            <div><span>8L</span><br>Beneficiaries</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%"></div>
+                        </div>
+                        <div class="progress-text">80% Complete</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineers -->
+        <section id="engineers" class="section">
+            <div class="container">
+                <h2>Engineers</h2>
+                <div class="upload-card">
+                    <h4>Upload Project Photos</h4>
+                    <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                        <p>📷 Click to upload images</p>
+                        <input type="file" id="fileInput" multiple accept="image/*" class="hidden">
+                    </div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h4>Rural Road Construction</h4>
+                        <div class="project-info">
+                            <span>Phase 3/4</span>
+                            <span>75% Complete</span>
+                        </div>
+                        <div class="project-details">
+                            <div>Engineer: Raj Kumar</div>
+                            <div>Photos: 12</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h4>School Building</h4>
+                        <div class="project-info">
+                            <span>Phase 2/3</span>
+                            <span>60% Complete</span>
+                        </div>
+                        <div class="project-details">
+                            <div>Engineer: Priya Sharma</div>
+                            <div>Photos: 8</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h4>Water Pipeline</h4>
+                        <div class="project-info">
+                            <span>Phase 1/2</span>
+                            <span>30% Complete</span>
+                        </div>
+                        <div class="project-details">
+                            <div>Engineer: Amit Singh</div>
+                            <div>Photos: 5</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 30%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Complaints -->
+        <section id="complaints" class="section">
+            <div class="container">
+                <h2>Complaints</h2>
+                <div class="complaint-form">
+                    <h4>Submit Complaint</h4>
+                    <form id="complaintForm">
+                        <select class="form-control" required>
+                            <option value="">Select Type</option>
+                            <option value="Water">Water Supply</option>
+                            <option value="Road">Road</option>
+                            <option value="Education">Education</option>
+                            <option value="Health">Health</option>
+                        </select>
+                        <textarea class="form-control" placeholder="Description" rows="3" required></textarea>
+                        <input type="text" class="form-control" placeholder="Location" required>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+                <div class="complaints-list">
+                    <div class="complaint-card">
+                        <div class="complaint-header">
+                            <h5>Water Supply</h5>
+                            <span class="status progress">In Progress</span>
+                        </div>
+                        <p>Location: Lucknow, UP</p>
+                        <div class="complaint-date">Oct 1, 2025</div>
+                    </div>
+                    <div class="complaint-card">
+                        <div class="complaint-header">
+                            <h5>Road Infrastructure</h5>
+                            <span class="status resolved">Resolved</span>
+                        </div>
+                        <p>Location: Mumbai, MH</p>
+                        <div class="complaint-date">Sep 28, 2025</div>
+                    </div>
+                    <div class="complaint-card">
+                        <div class="complaint-header">
+                            <h5>Education</h5>
+                            <span class="status pending">Pending</span>
+                        </div>
+                        <p>Location: Patna, BR</p>
+                        <div class="complaint-date">Oct 2, 2025</div>
+                    </div>
+                    <div class="complaint-card">
+                        <div class="complaint-header">
+                            <h5>Healthcare</h5>
+                            <span class="status progress">In Progress</span>
+                        </div>
+                        <p>Location: Kolkata, WB</p>
+                        <div class="complaint-date">Sep 30, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts -->
+        <section id="alerts" class="section">
+            <div class="container">
+                <h2>Alerts</h2>
+                <div class="alerts-filters">
+                    <select class="form-control" id="alertFilter">
+                        <option value="">All Alerts</option>
+                        <option value="critical">Critical</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                    </select>
+                </div>
+                <div class="alerts-list">
+                    <div class="alert-card critical">
+                        <div class="alert-header">
+                            <h5>Fund Misuse</h5>
+                            <span class="alert-level critical">Critical</span>
+                        </div>
+                        <p>Muzaffarpur, Bihar</p>
+                        <div class="alert-status">Open</div>
+                    </div>
+                    <div class="alert-card high">
+                        <div class="alert-header">
+                            <h5>Work Delay</h5>
+                            <span class="alert-level high">High</span>
+                        </div>
+                        <p>Agra, UP</p>
+                        <div class="alert-status">Under Review</div>
+                    </div>
+                    <div class="alert-card medium">
+                        <div class="alert-header">
+                            <h5>Fake Info</h5>
+                            <span class="alert-level medium">Medium</span>
+                        </div>
+                        <p>Pune, MH</p>
+                        <div class="alert-status">Investigating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2>Gallery</h2>
+                <div class="gallery-filters">
+                    <select class="form-control">
+                        <option value="">All Projects</option>
+                        <option value="roads">Roads</option>
+                        <option value="schools">Schools</option>
+                        <option value="water">Water</option>
+                    </select>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-info">
+                            <h6>Road Construction - Phase 3</h6>
+                            <p>Progress Photo</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-info">
+                            <h6>School Building - Phase 2</h6>
+                            <p>Foundation Work</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-info">
+                            <h6>Water Pipeline - Phase 1</h6>
+                            <p>Installation</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-info">
+                            <h6>Health Center</h6>
+                            <p>Equipment Setup</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-info">
+                            <h6>Rural Connectivity</h6>
+                            <p>Bridge Construction</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">📸</div>
+                        <div class="gallery-info">
+                            <h6>Skill Center</h6>
+                            <p>Training Facility</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Loading Indicator -->
+    <div id="loadingIndicator" class="loading-indicator hidden">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
